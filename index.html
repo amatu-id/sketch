@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<script src="/amatu.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>Sketch Paint</title>
+<meta name="description" content="Sketch Paint — menggambar, melukis, mencoret, menulis teks, sisipkan foto & ikon, lapisan, kanvas kertas atau tak terbatas.">
+<meta name="theme-color" content="#17171a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23ff5a5f'/%3E%3Cpath d='M22 6.5a2.3 2.3 0 0 1 3.3 3.3L15.5 19.6l-3.2-3.2z' fill='%23fff'/%3E%3Cpath d='M12.3 16.4c-2.7 0-4.5 1.8-4.5 4.5 0 1.8-.9 3-2.3 3.7 1.5 1.4 3.6 2 5.6 2 3.6 0 5.5-2.6 5-6.2' fill='%23ffd23f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Roboto+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;700&family=Caveat:wght@400;700&family=Patrick+Hand&family=Pacifico&family=Permanent+Marker&family=Bebas+Neue&family=Lobster&family=Comic+Neue:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div id="app">
+  <!-- gallery -->
+  <section id="gallery">
+    <header class="g-head">
+      <div class="brand"><span class="logo"></span><div><b>Sketch Paint</b><small>Gambar · lukis · coret · tulis</small></div></div>
+      <div class="sp"></div>
+      <button class="btn ghost" id="gTheme" title="Tema"></button>
+      <button class="btn" id="gOpen"></button>
+      <button class="btn primary" id="gNew"></button>
+    </header>
+    <div class="g-quick" id="gQuick"></div>
+    <h3 class="g-title">Gambar saya</h3>
+    <div class="g-grid" id="gGrid"></div>
+  </section>
+
+  <!-- editor -->
+  <section id="editor" hidden>
+    <header id="top">
+      <button class="ib" id="bGallery" title="Galeri"></button>
+      <input id="docName" spellcheck="false" aria-label="Nama gambar">
+      <nav id="menus"></nav>
+      <div class="sp"></div>
+      <span id="saveState" class="mut"></span>
+      <button class="ib" id="bUndo" title="Urungkan (⌘Z)"></button>
+      <button class="ib" id="bRedo" title="Ulangi (⇧⌘Z)"></button>
+      <button class="ib only-m" id="bMenuM" title="Menu"></button>
+      <button class="btn primary" id="bExport"></button>
+    </header>
+    <div id="opts"></div>
+    <main id="work">
+      <aside id="tools"></aside>
+      <div id="stage">
+        <canvas id="cv"></canvas>
+        <canvas id="ov"></canvas>
+        <textarea id="ted" hidden spellcheck="false" autocapitalize="off" autocomplete="off"></textarea>
+        <div id="qs"></div>
+        <div id="hud"></div>
+      </div>
+      <aside id="side">
+        <div class="sheet-grip only-m"></div>
+        <div class="side-tabs only-m" id="sideTabs"></div>
+        <section id="pColor" class="pnl"></section>
+        <section id="pLayers" class="pnl"></section>
+        <section id="pNav" class="pnl"></section>
+      </aside>
+    </main>
+    <nav id="mbar" class="only-m"></nav>
+  </section>
+
+  <div id="refwin" hidden></div>
+  <div id="pop"></div>
+  <div id="modal"></div>
+  <div id="toast"></div>
+  <input type="file" id="fileImg" accept="image/*" hidden multiple>
+  <input type="file" id="fileCam" accept="image/*" capture="environment" hidden>
+  <input type="file" id="fileOpen" accept="image/*,.psd,.json,.sketch,application/json" hidden>
+  <input type="file" id="fileRef" accept="image/*" hidden>
+</div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
